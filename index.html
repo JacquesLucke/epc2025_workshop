@@ -15,12 +15,79 @@
 
     <!-- Theme used for syntax highlighted code -->
     <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+
+    <script src="https://js.polli.live/main.js"></script>
+
+    <style>
+      .reveal h1,
+      .reveal h2,
+      .reveal h3,
+      .reveal h4,
+      .reveal h5,
+      .reveal h6 {
+        text-transform: none;
+      }
+
+      .reveal em {
+        color: #dba667;
+        font-style: normal;
+      }
+    </style>
   </head>
   <body>
     <div class="reveal">
       <div class="slides">
-        <section>Slide 1</section>
-        <section>Slide 2</section>
+        <section>
+          <div
+            style="display: grid; grid-template-columns: 2fr 3fr; height: 100%"
+          >
+            <div>
+              <img
+                class="polli-live-qr-code"
+                style="
+                  image-rendering: pixelated;
+                  margin: 0;
+                  width: 100%;
+                  background-color: white;
+                  border: 0.5em solid transparent;
+                  border-radius: 0.5em;
+                  box-sizing: border-box;
+                "
+              />
+            </div>
+            <div>
+              Join the interactive part!
+              <div
+                class="polli-live-choice"
+                id="join-interactivity"
+                style="width: 100%"
+              >
+                <option>I'm in</option>
+                <option>Wait</option>
+              </div>
+              <div>
+                <em><code>polli.live</code></em> with
+                <code class="polli-live-session-id"></code>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h2>What's your background?</h2>
+          <div class="polli-live-continuum" id="what-is-your-background-poll">
+            <option>Artistic</option>
+            <option>Both</option>
+            <option>Technical</option>
+          </div>
+        </section>
+        <section>
+          <h2>How long have you used Geometry Nodes?</h2>
+          <div class="polli-live-continuum" id="what-is-your-experience-poll">
+            <option>No</option>
+            <option>Few Months</option>
+            <option>Few Years</option>
+          </div>
+        </section>
       </div>
     </div>
 
@@ -29,13 +96,11 @@
     <script src="plugin/markdown/markdown.js"></script>
     <script src="plugin/highlight/highlight.js"></script>
     <script>
-      // More info about initialization & config:
-      // - https://revealjs.com/initialization/
-      // - https://revealjs.com/config/
+      if (typeof polli_live !== "undefined") {
+        polli_live.initialize({});
+      }
       Reveal.initialize({
         hash: true,
-
-        // Learn about plugins: https://revealjs.com/plugins/
         plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
       });
     </script>
